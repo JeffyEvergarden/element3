@@ -56,7 +56,10 @@ export default {
   },
   emits: ['click'],
   setup(props, ctx) {
+    // toRefs(拆箱)
+    console.log(props)
     const { size, disabled } = toRefs(props)
+    // 取值得用size.value
 
     const buttonSize = useButtonSize(size)
     const buttonDisabled = useButtonDisabled(disabled)
@@ -74,6 +77,7 @@ export default {
 }
 
 const useButtonSize = (size) => {
+  // provide inject
   const elFormItem = inject('elFormItem', {})
 
   const _elFormItemSize = computed(() => {
